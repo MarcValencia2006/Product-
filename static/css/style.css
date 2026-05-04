@@ -1,0 +1,52 @@
+
+:root {
+    --gold: #D4AF37;
+    --dark-bg: #0d0d0d;
+    --card-bg: #1a1a1a;
+    --text: #e0e0e0;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-gold {
+    background: linear-gradient(90deg, #000, #1a1a1a);
+    border-bottom: 2px solid var(--gold);
+    padding: 1rem;
+}
+
+.btn-gold {
+    background-color: var(--gold);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background-color: #b8952e;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.card-luxury {
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.table-luxury {
+    color: #fff;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.table-luxury thead th {
+    color: var(--gold);
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}

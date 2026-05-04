@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row align-items-center mb-5">
+    <div class="col-md-6">
+        <h1 class="display-5" style="color: var(--gold-primary);">Inventario Global</h1>
+        <p class="text-muted">Control total de activos y existencias en tiempo real.</p>
+    </div>
+    <div class="col-md-6 text-end">
+        <a href="{{ url_for('create') }}" class="btn btn-gold-solid shadow-sm">NUEVO PRODUCTO</a>
+    </div>
+</div>
+
+<div class="card card-gold p-4">
+    <div class="table-responsive">
+        <table class="table-premium">
+            <thead>
+                <tr>
+                    <th>Ref. ID</th>
+                    <th>Nombre del Producto</th>
+                    <th>Valor Unitario</th>
+                    <th>Stock</th>
+                    <th class="text-end">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in products %}
+                <tr>
+                    <td class="text-muted">#00{{ p.id }}</td>
+                    <td class="fw-bold">{{ p.name }}</td>
+                    <td><span style="color: var(--gold-secondary);">$ {{ "%.2f"|format(p.price) }}</span></td>
+                    <td>{{ p.stock }} Unidades</td>
+                    <td class="text-end">
+                        <a href="{{ url_for('update', id=p.id) }}" class="btn btn-sm btn-gold-outline me-2">EDITAR</a>
+                        <a href="{{ url_for('delete', id=p.id) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Confirmar baja definitiva?')">ELIMINAR</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted p-5">Sin registros disponibles en el repositorio.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
